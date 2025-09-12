@@ -1,0 +1,50 @@
+# Python build artifacts and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+
+# IDE / Editor specific files
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Testing and coverage reports
+.coverage
+.coverage.*
+.cache
+htmlcov/
+.pytest_cache/
+
+# Project-specific ignores
+# ------------------------
+# The generated SQLite database
+gazetteer.db
+
+# The raw data file is large and should be downloaded manually
+GBPN.csv
