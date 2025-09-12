@@ -98,7 +98,7 @@ You can query the API directly using `curl` or a browser:
 curl "http://127.0.0.1:8000/lookup?placename=Cambridge"
 
 # Filter by county
-curl "http://127.0.0.1:8000/lookup?placename=Alton&county=Hampshire"
+curl "http://127.0.0.1:8000/lookup?placename=Winchester&county=Hampshire"
 ```
 
 ### Using the FastMCP Tool
@@ -106,7 +106,7 @@ curl "http://127.0.0.1:8000/lookup?placename=Alton&county=Hampshire"
 The FastMCP server exposes the `get_lat_long` tool, which your LLM can now call.
 
 -   **Tool**: `get_lat_long(placename: str, county: Optional[str] = None)`
--   **Example**: An LLM wanting to know the weather in "Alton, Hampshire" would first call `get_lat_long("Alton", "Hampshire")` to get the coordinates before calling a weather tool.
+-   **Example**: An LLM wanting to know the weather in "Winchester, Hampshire" would first call `get_lat_long("Winchester", "Hampshire")` to get the coordinates before calling a weather tool.
 
 ## (Optional) Gemini CLI Integration
 
