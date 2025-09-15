@@ -27,7 +27,7 @@ The system is composed of two main parts:
 ├── main.py               # The FastAPI server for the gazetteer API
 ├── mcp_server.py         # The FastMCP server exposing the get_lat_long tool
 ├── README.md             # This file
-└── requirements.txt      # Python dependencies
+└── pyproject.toml        # Project metadata and dependencies
 ```
 
 ## Setup and Installation
@@ -47,10 +47,10 @@ This project requires the **GB Placenames CSV file (`GBPN.csv`)** from [gazettee
 
 ### 3. Install Dependencies
 
-Install all the necessary Python packages using `requirements.txt`.
+Install all the necessary Python packages using `pip`. This will automatically use the `pyproject.toml` file to determine the required dependencies.
 
 ```bash
-pip install -r requirements.txt
+pip install .
 ```
 
 ### 4. Create the Database

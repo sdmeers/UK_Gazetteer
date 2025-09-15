@@ -7,7 +7,6 @@ dependencies = [
     "pandas",
     "requests",
     "fastmcp",
-    "typer",
 ]
 
 [build-system]
