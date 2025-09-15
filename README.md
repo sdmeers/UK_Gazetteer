@@ -108,9 +108,13 @@ The FastMCP server exposes the `get_lat_long` tool, which your LLM can now call.
 -   **Tool**: `get_lat_long(placename: str, county: Optional[str] = None)`
 -   **Example**: An LLM wanting to know the weather in "Winchester, Hampshire" would first call `get_lat_long("Winchester", "Hampshire")` to get the coordinates before calling a weather tool.
 
-## (Optional) Gemini CLI Integration
+## Using with the Gemini CLI
 
-If you are using the Gemini CLI, you can configure it to automatically run the FastMCP server by adding the following to your `settings.json` file under `mcpServers`:
+To use the `get_lat_long` tool directly within the Gemini CLI, you can configure it to automatically manage the MCP server.
+
+### 1. Configure Gemini for the MCP Server
+
+Add the following entry to your `settings.json` file (usually found at `~/.gemini/settings.json`) inside the `mcpServers` object. This tells the Gemini CLI how to launch the `uk_gazetteer` MCP server.
 
 ```json
 "uk_gazetteer": {
@@ -125,4 +129,25 @@ If you are using the Gemini CLI, you can configure it to automatically run the F
   "cwd": "/path/to/this/project/uk_gazetteer"
 }
 ```
-*Remember to replace the paths with the correct absolute paths for your system.*
+***Note**: Remember to replace the `command` and `cwd` paths with the correct absolute paths for your system. You can find the path to `uv` by running `which uv`.*
+
+### 2. Run the Gazetteer API Server
+
+Before launching the Gemini CLI, you must start the Gazetteer API server in a separate terminal. This server provides the data that the MCP server needs.
+
+First, activate your virtual environment if you are using one, then run the following command:
+```bash
+# In your first terminal:
+uvicorn main:app --reload --port 8000
+```
+The API will be available at `http://127.0.0.1:8000`.
+
+### 3. Launch Gemini and Use the Tool
+
+Now, you can launch the Gemini CLI. It will automatically start the `uk_gazetteer` MCP server in the background.
+
+You can then use the `get_lat_long` tool directly in your prompts. For example:
+
+`What is the weather in Cambridge?`
+
+The LLM will first call `get_lat_long("Cambridge")` to get the coordinates and then use a weather tool to get the forecast.
