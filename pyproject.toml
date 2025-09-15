@@ -1,0 +1,18 @@
+[project]
+name = "uk_gazetteer"
+version = "0.1.0"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pandas",
+    "requests",
+    "fastmcp",
+    "typer",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["gazetteer_client", "ingest", "main", "mcp_server"]

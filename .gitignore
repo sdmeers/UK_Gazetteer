@@ -25,6 +25,7 @@ wheels/
 .venv
 env/
 venv/
+uv.lock
 
 # IDE / Editor specific files
 .vscode/

@@ -1,4 +1,4 @@
-from fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP
 from gazetteer_client import GazetteerClient
 from typing import Optional, Dict
 
@@ -8,7 +8,7 @@ mcp = FastMCP("Gazetteer MCP Server")
 # Instantiate the client for our gazetteer API
 gazetteer_client = GazetteerClient()
 
-@mcp.tool
+@mcp.tool()
 def get_lat_long(placename: str, county: Optional[str] = None) -> Optional[Dict[str, float]]:
     """
     Gets the latitude and longitude for a UK place name.
